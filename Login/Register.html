@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css" />
+
+    <link rel="stylesheet" href="/css/aos.css" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="Login.css" />
+    <link rel="stylesheet" href="Register.css" />
+    <!--<title>Login & Registration Form</title>-->
+  </head>
+  <body>
+    <header class="site-navbar py-4" role="banner">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <div class="site-logo">
+            <a href="https://www.charusat.ac.in/">
+              <img src="/images/charusat.png" alt="Logo" />
+            </a>
+          </div>
+          <div class="ml-auto">
+            <nav
+              class="site-navigation position-relative text-right"
+              role="navigation"
+            >
+              <ul
+                class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
+              >
+                <li>
+                  <a href="/index.html" class="nav-link">Home</a>
+                </li>
+                <li>
+                  <a href="/Indoor.html" class="nav-link">Indoor games</a>
+                </li>
+                <li>
+                  <a href="/Outdoor.html" class="nav-link">Outdoor games</a>
+                </li>
+                <li>
+                  <a href="/University.html" class="nav-link"
+                    >University Tournament</a
+                  >
+                </li>
+                <!-- <li><a href="blog.html" class="nav-link">University Tournament</a></li> -->
+                <li><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="active">
+                  <a href="/Login/Login.html" class="nav-link">Login/Sign Up</a>
+                </li>
+              </ul>
+            </nav>
+            <a
+              href="#"
+              class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"
+              ><span class="icon-menu h3 text-white"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="Dod">
+      <div class="container_A">
+        <div class="title">Registration</div>
+        <div class="content">
+          <form action="#">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" placeholder="Enter your name" required />
+              </div>
+              <div class="input-box">
+                <span class="details">Username</span>
+                <input type="text" placeholder="Enter your username" required />
+              </div>
+              <div class="input-box">
+                <span class="details">Email</span>
+                <input type="email" placeholder="Enter your email" id="email_s" required />
+              </div>
+              <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="number" placeholder="Enter your number" required />
+              </div>
+              <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" placeholder="Enter your password" id="password_s" required />
+              </div>
+              <div class="input-box">
+                <span class="details">Confirm Password</span>
+                <input
+                  type="password"
+                  placeholder="Confirm your password"
+                  required
+                />
+              </div>
+            </div>
+            <div class="button">
+              <input type="submit" value="Register" id="submit_s" />
+            </div>
+          </form>
+          <div class="login-signup">
+            <span class="text"
+              >Already Register?
+              <a style="color: blue" href="Login.html" class="text signup-link"
+                >Login</a
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+      import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCkxDdnOEALKrK1bplCMVV46Meen4xkK9g",
+        authDomain: "sgp-1-489bd.firebaseapp.com",
+        projectId: "sgp-1-489bd",
+        storageBucket: "sgp-1-489bd.appspot.com",
+        messagingSenderId: "1029725973881",
+        appId: "1:1029725973881:web:106c385d5ec13c7ab5d3a8",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth();
+      const database = getDatabase();
+
+      submit_s.addEventListener("click", (e) => {
+        var email = document.getElementById("email_s").value;
+        var password = document.getElementById("password_s").value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+
+            const user = userCredential.user;
+            // ...
+            set(ref(database, "users/" + user.uid), {
+              email: email,
+              password: password,
+              //profile_picture : imageUrl
+            })
+              .then(() => {
+                // Data saved successfully!
+                alert("Registration Successful...\n Login Now");
+                location.replace('Login.html');
+              })
+              .catch((error) => {
+                // The write failed...
+                alert(error);
+              });
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage);
+          });
+      });
+    </script>
+
+
+  </body>
+</html>
